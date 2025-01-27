@@ -160,7 +160,7 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
             };
         </script> -->
 
-        <!-- IDLE TIMER  -->
+    <!-- IDLE TIMER  -->
     <div id="idle-timer"
         style="position: absolute; top: 60px; right: 20px; background-color: #f8d7da; padding: 10px; border-radius: 5px; display: none;">
         Idle Time: <span id="idle-time">0</span> seconds
@@ -418,13 +418,13 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
                     <img src="img/topplate/Own_Material.png">
                 </div>
                 <p class="title">Own Material</p>
-                    </div>
+            </div>
         </div>
 
         <div class="button-container">
             <button class="back disabled" id="back" onclick="">Back</a>
                 <button class="next disabled" id="next" onclick="next_section()">Next</a>
-                            <button class="disabled" id="download_svg" onclick="download_svg_as_file()">Save to Cart</button>
+                    <button class="disabled" id="download_svg" onclick="download_svg_as_file()">Save to Cart</button>
         </div>
     </div>
 
