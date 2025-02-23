@@ -74,9 +74,12 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
             G6 Superhomes
         </div>
         <nav>
-            <a href="?cart=true" class="cart-btn">
+            <!--add link below-->
+            <a href="https://www.google.com/" class="cart-btn" id="cartBtn">
                 <i class="fa-solid fa-shopping-cart"></i> View Cart
             </a>
+
+
             <a href="?logout=true style=" color: red; class="logout-btn">
                 Logout<i class="fa-solid fa-sign-out-alt" style="color: red; margin-left: 7px;"></i>
             </a>
