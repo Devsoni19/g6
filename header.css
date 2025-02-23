@@ -2,7 +2,6 @@
 header {
     position: fixed;
     width: 98%;
-    /* margin: 100px; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -10,7 +9,6 @@ header {
     background-color: white;
     font-family: Cursive;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Deep real shadow */
 }
 
 header .logo {
@@ -20,8 +18,7 @@ header .logo {
     margin-right: auto;
     margin-left: 15px;
 
-    /* For the gradiant text */
-
+    /* For the gradient text */
     background-image: url(logobg.jpg);
     background-size: cover;
     background-position: center;
@@ -34,43 +31,68 @@ header .logo {
 header nav {
     display: flex;
     gap: 15px;
-
 }
 
 header nav a {
     text-decoration: none;
-    color: red;
-    transition: color var(--transition-speed);
-    -webkit-transition: color var(--transition-speed);
-    -moz-transition: color var(--transition-speed);
-    -ms-transition: color var(--transition-speed);
-    -o-transition: color var(--transition-speed);
+    font-weight: bolder;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: ease-out 0.3s;
 }
 
-header nav a:hover {
-    color: rgb(255, 255, 255);
+
+/* View Cart Button */
+.cart-btn {
+    color: rgb(0, 123, 255);
+    /* Light blue text */
+}
+
+.cart-btn i {
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+
+/* Minimal Hover Effect for View Cart */
+.cart-btn:hover {
+    color: rgb(0, 86, 179);
+    /* Slightly darker blue */
+    text-decoration: none;
+    /* Underline effect */
+}
+
+/* Logout Button */
+.logout-btn {
+    color: red;
+}
+
+.logout-btn i {
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+/* Strong Hover Effect for Logout */
+.logout-btn:hover {
+    color: white;
     font-size: 1.2rem;
     font-weight: bolder;
-    transition:ease-out;
-    transition-duration: 0.3s;
-    padding: 2px;
+    transition: ease-out 0.3s;
+    padding: 7px;
     background-color: rgb(179, 1, 1);
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    -webkit-transition:ease-out;
-    -moz-transition:ease-out;
-    -ms-transition:ease-out;
-    -o-transition:ease-out;
+    transition: ease-out (0.5s);
+    -webkit-transition: ease-out (0.5s);
+    -moz-transition: ease-out (0.5s);
+    -ms-transition: ease-out (0.5s);
+    -o-transition: ease-out (0.5s);
 }
 
+/* Logo Image */
 .logo_img {
     display: flex;
     height: 40px;
     width: 40px;
     margin-top: auto;
-    /* border: 4px solid black; */
     object-fit: contain;
 }
