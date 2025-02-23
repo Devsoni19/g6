@@ -65,6 +65,7 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
 </head>
 
 <body>
+    <!--Header Bar Start-->
     <header>
         <div class="logo_img">
             <img src="logo.png" alt="G6 Logo">
@@ -78,6 +79,8 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
             </a>
         </nav>
     </header>
+    <!--Header Bar End-->
+
     <!-- <div class="mobile-vertical-msg">Please turn your device to Landscape mode</div>
         <nav>
         <a href="../" class="logo">
