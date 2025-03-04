@@ -13,6 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Define column names (key = database field, value = display name)
+//you can reorder the columns as you want by default it will display in the order you have defined here
 $columns = [
     "sr_no" => "SR No",
     "order_name" => "Order Name",
@@ -75,6 +76,25 @@ $result = $conn->query($sql);
                     } elseif ($db_field === "download_file") {
                         // Handle download file field
                         echo !empty($row[$db_field]) ? "<td><a href='{$row[$db_field]}' download>Download</a></td>" : "<td>No File</td>";
+
+                    } elseif ($db_field === "order_status") {
+                        // Handle status field
+                        $status = $row[$db_field] ?? "N/A";
+
+                        // Define status options
+                        $status_options = ["Cutting", "Printing", "Ready to Ship", "Delivery"];
+
+                        echo "<td>";
+                        echo "<select class='order-status'>";
+
+                        // Generate dropdown options
+                        foreach ($status_options as $option) {
+                            $selected = ($status === $option) ? "selected" : "";
+                            echo "<option value='{$option}' {$selected}>{$option}</option>";
+                        }
+
+                        echo "</select>";
+                        echo "</td>";
                     } else {
                         // Display all other fields normally
                         echo "<td>" . htmlspecialchars($row[$db_field] ?? "N/A") . "</td>";
