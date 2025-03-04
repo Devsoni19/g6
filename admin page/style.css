@@ -52,43 +52,37 @@ img {
 
 /* Add a custom dropdown arrow */
 .order-status {
+  appearance: none;
+  background-color: #f8f9fa;
+  border: 2px solid #007bff;
+  border-radius: 16px;
+  padding: 8px 32px 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  /* Width will be adjusted dynamically */
+}
+
+/* Custom dropdown arrow */
+.order-status {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23007bff'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 14px;
 }
 
-/* Hover effect */
-.order-status:hover {
-  background-color: #e7f1ff;
-  border-color: #0056b3;
-}
-
-/* Focus effect */
-.order-status:focus {
-  box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
-  border-color: #0047a3;
-}
-
-/* Active/Click effect */
-.order-status:active {
-  transform: scale(0.95);
-}
-
-/* Ensure dropdown expands properly */
+/* Option styling */
 .order-status option {
   background-color: #f8f9fa;
-  /* Match the main select box */
   color: #333;
   padding: 8px;
-  /* Same padding as main select */
   font-size: 16px;
   font-weight: bold;
   border-radius: 16px;
-  /* Apply same border-radius */
-}
-
-/* Change option color on hover */
-.order-status option:hover {
-  background-color: #e7f1ff;
 }

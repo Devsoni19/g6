@@ -109,6 +109,7 @@ $result = $conn->query($sql);
         ?>
 
     </table>
+    <script src="status_span_width_changer.js"></script> <!-- Include custom JavaScript for status dropdown -->
 
 </body>
 
