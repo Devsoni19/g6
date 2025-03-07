@@ -132,6 +132,7 @@ function next_section() {
         next_btn.classList.add("disabled");
         document.body.style.setProperty("--icon-holder-outline-weight", "0px");
         next_btn.innerHTML = "Download as PNG";
+        next_btn.style.display = "none"; // Hide the button
         next_btn.onclick = () => {
             if (is_plate_selected) {
                 const myDiv = document.getElementById('board');
