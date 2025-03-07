@@ -8,6 +8,9 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
+// Retrieve user info
+$username = $_SESSION['username'];
+
 // Handle logout
 if (isset($_GET['logout'])) {
     // Regenerate session ID to prevent session fixation attacks
@@ -74,6 +77,7 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
             G6 Superhomes
         </div>
         <nav>
+            <span class="username-at-header">Welcome, <?php echo htmlspecialchars($username); ?></span>
             <!--add link below-->
             <a href="http://localhost/internship/view_product/" class="cart-btn" id="cartBtn">
                 <i class="fa-solid fa-shopping-cart"></i> View Cart
