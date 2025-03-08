@@ -212,9 +212,9 @@ function download_svg_as_file() {
     document.querySelector(".board-preview").outerHTML = safe_copy;
 
     let content = svg.outerHTML;
-    let filename = prompt("Enter board name");
-    console.log("Test");
-    console.log(content);
+    // let filename = prompt("Enter board name");
+    // console.log("Test");
+    // console.log(content);
 
     // Send SVG data to server using AJAX //dev start
     var xhr = new XMLHttpRequest();
@@ -233,22 +233,22 @@ function download_svg_as_file() {
     let blob2 = new Blob([txt], { type: 'text/plain' });
     let url2 = URL.createObjectURL(blob2);
 
-    let link = document.createElement('a');
-    link.href = url;
-    link.download = filename + ".svg";
-    link.innerHTML = 'Download File';
-    document.body.appendChild(link);
-    link.click();
+    // let link = document.createElement('a');
+    // link.href = url;
+    // link.download = filename + ".svg";
+    // link.innerHTML = 'Download File';
+    // document.body.appendChild(link);
+    // link.click();
 
-    let link2 = document.createElement('a');
-    link2.href = url2;
-    link2.download = filename + ".txt";
-    link2.innerHTML = 'Download File';
-    document.body.appendChild(link2);
-    link2.click();
+    // let link2 = document.createElement('a');
+    // link2.href = url2;
+    // link2.download = filename + ".txt";
+    // link2.innerHTML = 'Download File';
+    // document.body.appendChild(link2);
+    // link2.click();
 
-    link.remove();
-    link2.remove();
+    // link.remove();
+    // link2.remove();
 
     container.container_count = 0;
 }
