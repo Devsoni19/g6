@@ -30,6 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Set session variable
             $_SESSION['username'] = $username;
 
+            // Insert username into 'myoborders' table
+            $insertSql = $conn->prepare("INSERT INTO myoborders (username) VALUES (?)");
+            $insertSql->bind_param("s", $username);
+            if ($insertSql->execute()) {
+                // Success message (optional)
+            } else {
+                $_SESSION['error'] = "Failed to update myoborders: " . $conn->error;
+            }
+            $insertSql->close();
+
             // Prepare login details
             $userID = $row['id'];
             date_default_timezone_set('Asia/Kolkata');

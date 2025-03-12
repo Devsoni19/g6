@@ -446,6 +446,25 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
         <div class="board-container" id="board">
         </div>
     </div>
+
+    <script>
+        document.getElementById("download_svg").addEventListener("click", function () {
+            var svgData = content; // Replace with actual SVG data //content is from svg_generator.js file
+
+            fetch("save_svg.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "data=" + encodeURIComponent(svgData)
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data); // Display server response
+                })
+                .catch(error => console.error("Error:", error));
+        });
+    </script>
+
+
 </body>
 
 </html>
