@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 
 // Include database connections
 include 'connect.php';
-include 'connect_log_in_info.php';
 
 // Start session
 session_start();
@@ -308,7 +307,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit" class="login-btn">Login</button>
             </form>
-            <p>Don't have an account? <a href="sign-up.php">Sign up</a></p>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
