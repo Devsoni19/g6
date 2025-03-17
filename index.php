@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql->close();
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 ?>
@@ -291,9 +291,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if (!empty($_SESSION['error'])) { ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>username or password is incorrect</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
         </div>
         <?php unset($_SESSION['error']); ?>
     <?php } ?>
