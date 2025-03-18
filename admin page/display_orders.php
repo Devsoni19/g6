@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "admin page";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include '../connect.php';
 
 // Define column names (key = database field, value = display name)
 //you can reorder the columns as you want by default it will display in the order you have defined here
@@ -27,7 +16,7 @@ $columns = [
 ];
 
 // Create SQL query dynamically based on column keys
-$sql = "SELECT " . implode(", ", array_keys($columns)) . " FROM orders";
+$sql = "SELECT " . implode(", ", array_keys($columns)) . " FROM admin_page";
 $result = $conn->query($sql);
 ?>
 
