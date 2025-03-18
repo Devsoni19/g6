@@ -16,6 +16,16 @@ if (empty($svgData)) {
   die("Error: No SVG data received.");
 }
 
+$insertStmt = $conn->prepare("INSERT INTO myoborders (username) VALUES (?)");
+$insertStmt->bind_param("s", $username);
+
+if ($insertStmt->execute()) {
+  echo "New username saved successfully!";
+} else {
+  echo "Error inserting data: " . $insertStmt->error;
+}
+
+$insertStmt->close();
 // Step 1: Find the most recent entry (last inserted row) for this user
 $findRecent = $conn->prepare("SELECT id FROM myoborders WHERE username = ? ORDER BY id DESC LIMIT 1");
 $findRecent->bind_param("s", $username);
@@ -52,4 +62,5 @@ if ($row) {
 }
 
 $conn->close();
+
 ?>
