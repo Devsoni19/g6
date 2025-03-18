@@ -16,18 +16,8 @@ if (empty($svgData)) {
   die("Error: No SVG data received.");
 }
 
-$insertStmt = $conn->prepare("INSERT INTO myoborders (username) VALUES (?)");
-$insertStmt->bind_param("s", $username);
-
-if ($insertStmt->execute()) {
-  echo "New username saved successfully!";
-} else {
-  echo "Error inserting data: " . $insertStmt->error;
-}
-
-$insertStmt->close();
 // Step 1: Find the most recent entry (last inserted row) for this user
-$findRecent = $conn->prepare("SELECT id FROM myoborders WHERE username = ? ORDER BY id DESC LIMIT 1");
+$findRecent = $conn->prepare("SELECT id, file, quantity FROM myoborders WHERE username = ? ORDER BY id DESC LIMIT 1");
 $findRecent->bind_param("s", $username);
 $findRecent->execute();
 $result = $findRecent->get_result();
@@ -35,21 +25,39 @@ $row = $result->fetch_assoc();
 $findRecent->close();
 
 if ($row) {
-  // Step 2: Update only the most recent row (latest entry)
   $lastInsertedId = $row['id'];
-  $updateStmt = $conn->prepare("UPDATE myoborders SET file = ? WHERE id = ?");
-  $updateStmt->bind_param("si", $svgData, $lastInsertedId);
+  $existingFile = $row['file'];
+  $existingQuantity = $row['quantity'];
 
-  if ($updateStmt->execute()) {
-    echo "Most recent SVG data updated successfully!";
+  if ($existingFile === $svgData) {
+    // Step 2: If the same file exists, increment quantity
+    $newQuantity = $existingQuantity + 1;
+    $updateStmt = $conn->prepare("UPDATE myoborders SET quantity = ? WHERE id = ?");
+    $updateStmt->bind_param("ii", $newQuantity, $lastInsertedId);
+
+    if ($updateStmt->execute()) {
+      echo "Quantity updated successfully!";
+    } else {
+      echo "Error updating quantity: " . $updateStmt->error;
+    }
+
+    $updateStmt->close();
   } else {
-    echo "Error updating data: " . $updateStmt->error;
-  }
+    // Step 3: Insert a new row if file is different
+    $insertStmt = $conn->prepare("INSERT INTO myoborders (username, file, quantity) VALUES (?, ?, 1)");
+    $insertStmt->bind_param("ss", $username, $svgData);
 
-  $updateStmt->close();
+    if ($insertStmt->execute()) {
+      echo "New SVG data saved successfully!";
+    } else {
+      echo "Error inserting data: " . $insertStmt->error;
+    }
+
+    $insertStmt->close();
+  }
 } else {
-  // Step 3: If no record exists, insert a new row
-  $insertStmt = $conn->prepare("INSERT INTO myoborders (username, file) VALUES (?, ?)");
+  // If no record exists, insert a new row
+  $insertStmt = $conn->prepare("INSERT INTO myoborders (username, file, quantity) VALUES (?, ?, 1)");
   $insertStmt->bind_param("ss", $username, $svgData);
 
   if ($insertStmt->execute()) {
@@ -62,5 +70,4 @@ if ($row) {
 }
 
 $conn->close();
-
 ?>
