@@ -24,27 +24,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        // Compare password as plain string
+        // Compare password as plain string (consider using password_hash in production)
         if ($password === $row['password']) {
             // Set session variable
             $_SESSION['username'] = $username;
+            $_SESSION['role'] = $row['role']; // Store user role in session
 
             // Prepare login details
             $userID = $row['id'];
             date_default_timezone_set('Asia/Kolkata');
-            $timestamp = date('Y-m-d H:i:s'); // Full date and time in dd-mm-yyyy format in Asia/Kolkata timezone
+            $timestamp = date('Y-m-d H:i:s'); // Full date and time in Asia/Kolkata timezone
             $macID = 'Unavailable'; // Replace with proper logic if MAC is critical
 
-            // Remove code to store IP address in the database
-            // $ipAddress = $_SERVER['REMOTE_ADDR'];
-            // $sql_ip = $conn->prepare("//INSERT INTO ip_addresses (user_id, ip_address, timestamp) VALUES (?, ?, ?)");
-            // $sql_ip->bind_param("iss", $userID, $ipAddress, $timestamp);
-            // $sql_ip->execute();
-            // $sql_ip->close();
-
-            // Redirect to button.php after successful login
-            // window.location.href
-            header("Location: users.php");
+            // Redirect based on user role
+            if ($row['role'] === 'admin') {
+                header("Location: first.php");
+            } else if ($row['role'] === 'user') {// User role
+                header("Location: users.php");
+            } else {
+                header("Location: index.php");
+            }
             exit();
         } else {
             $_SESSION['error'] = "Invalid username or password.";
@@ -57,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: index.php");
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
