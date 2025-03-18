@@ -1,0 +1,51 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.status-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+table,
+td,
+th {
+  border-collapse: collapse;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.username-select {
+  border: 1px solid black;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 5px;
+  font-size: medium;
+  font-weight: 700;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.orders {
+  display: flex;
+  gap: 10px;
+}
+
+image {
+  width: 300px;
+}
+
+img {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+  margin: 10px;
+}
