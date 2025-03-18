@@ -42,24 +42,9 @@ include '../connect.php';
         </tr>
       </thead>
       <tbody id="ordersTable">
-        <?php
-        // Fetch ID and Username in a single loop
-        $sql = "SELECT id, username,quantity,file FROM myoborders";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-            echo "<tr id='row-{$row['id']}'>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['username']}</td>";
-            echo "<td class='svg'><img src='data:image/svg+xml;base64," . base64_encode($row['file']) . "' alt='Order Image'></td>";
-            echo "<td>{$row['quantity']}</td>";
-            echo "</tr>";
-          }
-        } else {
-          echo "<tr><td colspan='2'>No orders found</td></tr>";
-        }
-        ?>
+        <tr>
+          <td colspan="4">Select a user to see orders</td>
+        </tr>
       </tbody>
     </table>
   </div>
