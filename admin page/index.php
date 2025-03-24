@@ -42,11 +42,12 @@ include '../connect.php';
           <th>File</th>
           <th>Quantity</th>
           <th>Color</th>
+          <th>Download</th>
         </tr>
       </thead>
       <tbody id="ordersTable">
         <tr>
-          <td colspan="4">Select a user to see orders</td>
+          <td colspan="6">Select a user to see orders</td>
         </tr>
         <script src="download_svg.js"></script>
 
