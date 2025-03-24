@@ -7,6 +7,7 @@ function fetchOrders() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       document.getElementById("ordersTable").innerHTML = xhr.responseText;
+      attachDownloadListeners(); // Attach event listeners after updating the table
     }
   };
   xhr.send("username=" + encodeURIComponent(username));

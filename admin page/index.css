@@ -13,8 +13,13 @@ table,
 td,
 th {
   border-collapse: collapse;
-  border: 2px solid black;
+  border: 3px solid black;
   text-align: center;
+  margin: 5px;
+}
+
+td {
+  padding: 5px;
 }
 
 .username-select {
@@ -47,5 +52,5 @@ img {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 
-  margin: 10px;
+  margin: 5px;
 }

@@ -10,6 +10,8 @@ include '../connect.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="index.css">
+  <script src="download_svg.js"></script>
+
 </head>
 
 <body>
@@ -39,16 +41,20 @@ include '../connect.php';
           <th>Username</th>
           <th>File</th>
           <th>Quantity</th>
+          <th>Color</th>
         </tr>
       </thead>
       <tbody id="ordersTable">
         <tr>
           <td colspan="4">Select a user to see orders</td>
         </tr>
+        <script src="download_svg.js"></script>
+
       </tbody>
     </table>
   </div>
   <script src="user-select.js"></script>
+  <script src="download_svg.js"></script>
 </body>
 
 </html>

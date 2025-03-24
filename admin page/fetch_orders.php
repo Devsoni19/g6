@@ -12,11 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["username"])) {
 
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+      $svgBase64 = base64_encode($row['file']);
       echo "<tr id='row-{$row['id']}'>";
       echo "<td>{$row['id']}</td>";
       echo "<td>{$row['username']}</td>";
-      echo "<td class='svg'><img src='data:image/svg+xml;base64," . base64_encode($row['file']) . "' alt='Order Image'></td>";
+      echo "<td class='svg-container'>
+                <img src='data:image/svg+xml;base64,{$svgBase64}' alt='SVG Image' class='svg-img' data-uri='{$svgBase64}'>
+              </td>";
       echo "<td>{$row['quantity']}</td>";
+      echo "<td>{$row['color']}</td>";
+      echo "<td><button class='download-btn' data-id='{$row['id']}'>Download</button></td>";
       echo "</tr>";
     }
   } else {
