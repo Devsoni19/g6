@@ -34,7 +34,7 @@ include '../connect.php';
 
     </div>
 
-    <div class="order-details">
+    <div class="table-container">
       <?php
       // Define table headers in an array
       $tableHeaders = ["Sr", "Username", "File", "Quantity", "Color", "Download", "Date", "Time"];
