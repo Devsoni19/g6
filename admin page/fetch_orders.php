@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["username"])) {
       echo "</tr>";
     }
   } else {
-    echo "<tr><td colspan='4'>No orders found for this user</td></tr>";
+    echo "<tr><td colspan='8'>No orders found for this user</td></tr>";
   }
 }
 ?>

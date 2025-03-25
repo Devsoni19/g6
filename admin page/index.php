@@ -34,30 +34,32 @@ include '../connect.php';
 
     </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>SR</th>
-          <th>Username</th>
-          <th>File</th>
-          <th>Quantity</th>
-          <th>Color</th>
-          <th>Download</th>
-          <th>Date</th>
-          <th>Time</th>
-        </tr>
-      </thead>
-      <tbody id="ordersTable">
-        <tr>
-          <td colspan="8">Select a user to see orders</td>
-        </tr>
-        <script src="download_svg.js"></script>
+    <div class="order-details">
+      <?php
+      // Define table headers in an array
+      $tableHeaders = ["Sr", "Username", "File", "Quantity", "Color", "Download", "Date", "Time"];
 
-      </tbody>
-    </table>
+      // Count the number of columns
+      $colspan = count($tableHeaders);
+      ?>
+
+      <table>
+        <thead>
+          <tr>
+            <?php foreach ($tableHeaders as $header): ?>
+              <th><?php echo $header; ?></th>
+            <?php endforeach; ?>
+          </tr>
+        </thead>
+        <tbody id="ordersTable">
+          <tr>
+            <td colspan="<?php echo $colspan; ?>">Select a user to see orders</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <script src="user-select.js"></script>
-  <script src="download_svg.js"></script>
 </body>
 
 </html>
