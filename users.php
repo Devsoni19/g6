@@ -79,7 +79,7 @@ if (($currentFile == 'users.php' || $currentFile == 'button.php') && !isset($_SE
         <nav>
             <span class="username-at-header">Welcome, <?php echo htmlspecialchars($username); ?></span>
             <!--add link below-->
-            <a href="http://localhost/internship/view_product/" class="cart-btn" id="cartBtn">
+            <a href="view_product/" class="cart-btn" id="cartBtn">
                 <i class="fa-solid fa-shopping-cart"></i> View Cart
             </a>
 
