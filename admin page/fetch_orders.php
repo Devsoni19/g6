@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["username"])) {
       echo "<td>{$row['quantity']}</td>";
       echo "<td>{$row['color']}</td>";
       echo "<td><button class='download-btn' data-id='{$row['id']}'>Download</button></td>";
+      echo "<td>" . date("d-m-Y", strtotime($row['date'])) . "</td>";
+      echo "<td>" . date("h:i A", strtotime($row['time'])) . "</td>";
       echo "</tr>";
     }
   } else {
